@@ -1,0 +1,93 @@
+# lab 12 pb
+"""
+1
+char = input()
+total = ""
+for i in char:
+    if i in "aeiou" and i.islower():
+        total += i.upper()
+    elif i in "AEIOU" and i.isupper():
+        total += i
+    else:
+        total += i.lower()
+print(total)
+"""
+"""
+2
+string = input().split(",") # list
+print(string)
+total = ""
+for i in string:
+    i = i.strip()
+    x = '"{}",'.format(i)
+    total += x
+print(total.strip(','))
+"""
+"""
+3
+list1 = []
+list2 = []
+while True:
+    negative = input()
+    if negative == "-1":
+        break
+    count1 = negative[:negative.find('=')]
+    count2 = negative[negative.find('=')+1:]
+    count1 = count1.strip()
+    count2 = count2.strip()
+    list1.append(count1)
+    list2.append(count2)
+count = 0
+maxx = 0
+for i in list1:
+    if len(i) > maxx:
+        maxx = len(i)
+for i in list1:
+    print("{} = {}".format(i.rjust(maxx),list2[count]))
+    count += 1
+"""
+"""
+4
+file = input()
+file_sub = file[file.rfind('.'):]
+file_sub = file_sub[:4]
+if file != "" and file_sub[0] == ".":
+    file_sub = file[file.rfind('.'):]
+    file_sub = file_sub[:4]
+    file_pre = file[:file.rfind('.')]
+
+    file_pre = file_pre[:15].replace(" ","_").replace("\\","_").replace("/","_").replace("*","_").replace(":","_").replace("|","_").replace("\"","_").replace("<","_").replace(">","_").replace(".","_")
+    
+    sub = file_sub[1:].replace(" ","_").replace("\\","_").replace("/","_").replace("*","_").replace(":","_").replace("|","_").replace("\"","_").replace("<","_").replace(">","_")
+    print(file_pre+"."+sub)
+else:
+    file = file[:15].replace(" ","_").replace("\\","_").replace("/","_").replace("*","_").replace(":","_").replace("|","_").replace("\"","_").replace("<","_").replace(">","_")
+    print(file)
+"""
+"""
+5
+char = input()
+collec = ""
+result = ""
+while True:
+    s = input()
+    if s == "0":
+        for i in char:
+            if i in collec:
+                result += i
+            else:
+                result += '-'
+        print(result)        
+        break
+    else:
+        if s not in collec:
+            collec += s
+"""
+"""
+7
+s = input().lower().replace("-"," ").replace("_"," ").replace("="," ").replace("."," ").replace("$"," ").title().replace(" ","")
+if s:
+    sub = s[1:]
+    check = s[0].lower()
+    print(check+sub)
+"""
